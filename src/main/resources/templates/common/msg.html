@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="/js/sweetalert.min.js"></script>
+	<script th:inline="javascript">
+		const title = [[${title}]];//대괄호 두개로 감싼 값이 서버에서 보내준 값임.
+		const msg = [[${msg}]];
+		const icon = [[${icon}]];
+		const loc = [[${loc}]];
+		//sweetalert 사용법
+		//1. 라이브러리 추가 : <script src="js/sweetalert.min.js">
+		//2. 사용
+		swal({
+			//배열{키 : 값}
+			//title : "제목"
+			title : title,
+			//text : "내용"
+			text : msg,
+			//icon : "아이콘 모양"
+			icon : icon
+		}).then(function(){
+			//ok버튼 클릭시 동작할 함수 -> 전달받은 loc페이지로 이동
+			//location.href = 이동할 페이지
+			location.href = loc;
+		});
+	</script>
+</body>
+</html>
