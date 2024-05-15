@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Insert title here</title>
+  <!-- 구글 아이콘 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <!-- jquery -->
+  <script src="/js/jquery-3.6.0.js"></script>
+  <!-- 기본 CSS -->
+  <link rel="stylesheet" href="/css/default-psw.css" />
+  <!-- 페이지 CSS -->
+  <link rel="stylesheet" href="/css/member/signUpFrm.css" />
+</head>
+
+<body>
+
+  <!-- main -->
+  <main class="main">
+
+    <!-- join-main -->
+    <main class="main-join">
+
+      <h2 class="page-title">회원가입</h2>
+
+      <div class="seperate seperate-right seperate-this">
+        <span style="color: var(--main_red)">*</span>
+        <span>필수입력사항</span>
+      </div>
+
+      <form class="join-form">
+        <!-- id -->
+        <div class="inputWrap-default">
+          <label for="id">
+            <div class="inputTitleDiv">
+              <span>아이디</span>
+              <span>*</span>
+            </div>
+          </label>
+          <label for="id">
+            <div class="inputDiv">
+              <!-- id만 autofocus 넣기. 페이지 로드 완료시 커서 위치이고, boolean형임. -->
+              <input type="text" name="id" id="id" autofocus>
+              <span>03:00</span>
+            </div>
+        </label>
+          <div class="btn-default btn-bg-blue">중복확인</div>
+        </div>
+        <!-- //id -->
+      </form>
+
+    </main>
+    <!-- //join-main -->
+
+  </main>
+  <!-- //main -->
+</body>
+
+</html>
