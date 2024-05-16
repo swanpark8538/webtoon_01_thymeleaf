@@ -21,4 +21,5 @@ public class Member {
 	private String memberPhone;
 	private String memberAddress;
 	private int memberBirthdate;
+	private int memberGender; //추가함. 2n이면 여성, 2n-1이면 남성.
 }

@@ -1,9 +1,17 @@
 package com.webtoon;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.webtoon.util.LoginInterceptor;
+
+//import kr.or.iei.AdminInterceptor;
+//import kr.or.iei.LoginInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -16,7 +24,21 @@ public class WebConfig implements WebMvcConfigurer{
 				.addResourceLocations("classpath:/templates/", "classpath:/static/");
 		//첨부파일 경로도 추가해야
 	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		//		인터셉터 추가			로그인인터셉터를 추가
+		registry.addInterceptor(new LoginInterceptor())
+			//add~ : 인터셉터 적용	//exclude~ : 인터셉터 예외(인터셉터 작동 X)
+			.addPathPatterns("/member/**")
+			.excludePathPatterns("/member/signUpFrm", "/member/signUp", "/member/signInFrm", "/member/signIn", "/member/signOut");
+	}
 	
-	//인터셉터도 추가해야함
+	//Spring Security의 BCryptPasswordEncoder 객체를 생성해놔야 BCryptPasswordEncoder 사용 가능
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
 	
 }
