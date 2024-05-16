@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판</title>
+</head>
+<body>
+	<h2>게시글 상세</h2>
+	<table border="1">
+		<tbody>
+			<tr>
+				<th>제목</th>
+				<td colspan="5" th:text="${board.boardTitle}"></td>
+			</tr>
+			<tr>
+				<th>작성자</th>
+				<td th:text="${board.boardWriter}"></td>
+				<th>작성일</th>
+				<td th:text="${board.boardDate}"></td>
+				<th>조회수</th>
+				<td th:text="${board.readCount}"></td>
+			</tr>
+			<tr>
+				<th>첨부파일</th>
+				<td colspan="5">
+					<div th:each="file : ${board.fileList}">
+						<a th:href="@{/board/downloadFile(filename=${file.filename},filepath=${file.filepath})}" th:text="${file.filename}"></a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td colspan="5" th:text="${board.boardContent}"></td>
+			</tr>
+			
+			<!-- <tr th:if="${session.member.memberId == board.boardWriter}"> -->
+			<tr>
+				<td colspan="6">
+					<a th:href="@{/board/updateFrm(boardNo=${board.boardNo})}">수정</a>
+					<a th:href="@{/board/delete(boardNo=${board.boardNo})}">삭제</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/board/boardList?reqPage=1">목록</a>
+</body>
+</html>

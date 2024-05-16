@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판</title>
+</head>
+<body>
+	<h2>게시글 작성</h2>
+	<form action="/board/write" method="post" enctype="multipart/form-data">
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>제목</th>
+					<td>
+						<input type="text" name="boardTitle">
+					</td>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td>
+						<!-- <input type="text" th:value="${session.member.memberId}" name="boardWriter" readonly> -->
+						<input type="text" th:value="test01" name="boardWriter" readonly>
+					</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td>
+						<textarea name="boardContent"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>첨부파일</th>
+					<td>
+						<input type="file" multiple="multiple" name="upfile">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="submit">작성완료</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>
