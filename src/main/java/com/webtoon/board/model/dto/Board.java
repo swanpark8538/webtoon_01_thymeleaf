@@ -1,5 +1,7 @@
 package com.webtoon.board.model.dto;
 
+import java.util.List;
+
 import org.apache.ibatis.type.Alias;
 
 import lombok.AllArgsConstructor;
@@ -11,11 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 @Alias(value="board")
 public class Board {
-
     private int boardNo;
-	private int memberNo;
 	private String boardTitle;
 	private String boardContent;
-	private int boardCount;
+	private String boardWriter;
+	private int readCount;
 	private String boardDate;
+	private List<BoardFile> fileList;
 }
