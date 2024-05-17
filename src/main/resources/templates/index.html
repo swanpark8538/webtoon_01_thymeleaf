@@ -34,15 +34,6 @@
         5. PathVariable 사용 시
         	<a th:href="@{/member/mypage/{memberId}(memberId = ${어쩌구저쩌구.memberId})}">패스배리어블</a>
         ---------------------------------
-        아래의 경우는 jsp로 어떻게 하나요?
-        thymeleaf의 경우는
-        1. foreach문
-        	th:each = member : ${memberList}
-        2. switch
-        	th:switch = ${memberList}
-        3. if문, unless문
-        	th:if = 조건식 , th:unless = 조건식
-        ---------------------------------
         스프링에서 BCryptPasswordEncoder를 쓰려면 어떻게 해야 하나요?
         스프링 부트에선
         1. spring-boot-starter-security 의존성 주입(이건 이름부터 스프링 부트인데 스프링에선 어떻게..ㅠ)
