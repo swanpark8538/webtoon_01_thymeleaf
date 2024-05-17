@@ -31,6 +31,14 @@
           <a th:href="@{/member/mypage(memberId = ${어쩌구저쩌구.memberId}, memberPw = ${어쩌구저쩌구.memberPw})}">파라미터 여러개</a>
         5. PathVariable 사용 시
           <a th:href="@{/member/mypage/{memberId}(memberId = ${어쩌구저쩌구.memberId})}">패스배리어블</a>
+        ---------------------------------
+        스프링에서 BCryptPasswordEncoder를 쓰려면 어떻게 해야 하나요?
+        스프링 부트에선
+        1. spring-boot-starter-security 의존성 주입(이건 이름부터 스프링 부트인데 스프링에선 어떻게..ㅠ)
+        2. Application.java에 암호화 기본세팅 제거 & AOP 적용
+        3. WebConfig 클래스에 @Bean으로 BCryptPasswordEncoder 객체 생성
+        4. PasswordEncAdvice 클래스에서 @Pointcut위치 정의하고 @Before로 패스워드 암호화
+        5. service에서 개별적으로 암호화할 필요가 있으면 그 서비스에 @Autowired로 BCryptPasswordEncoder 객체 가져와서 활용
       -->
     </ul>
   </th:block>
