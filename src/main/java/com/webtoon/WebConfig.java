@@ -22,7 +22,8 @@ public class WebConfig implements WebMvcConfigurer{
 		//서버에 리소스(페이지, 첨부파일 등) 요청시 경로 찾아주는 로직
 		registry.addResourceHandler("/**")
 				.addResourceLocations("classpath:/templates/", "classpath:/static/");
-		//첨부파일 경로도 추가해야
+		registry.addResourceHandler("/board/**")
+				.addResourceLocations("file:///C:/Temp/upload/board/");
 	}
 
 	@Override
