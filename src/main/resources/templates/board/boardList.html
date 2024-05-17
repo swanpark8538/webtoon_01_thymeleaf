@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h2>게시판</h2>
-	<h3><a href="/board/writeFrm">게시글 작성</a></h3>
+	<h3 th:if="${session.member != null}"><a href="/board/writeFrm">게시글 작성</a></h3>
 	<table border="1">
 		<thead>
 			<tr>

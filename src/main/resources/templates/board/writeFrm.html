@@ -18,8 +18,7 @@
 				<tr>
 					<th>작성자</th>
 					<td>
-						<!-- <input type="text" th:value="${session.member.memberId}" name="boardWriter" readonly> -->
-						<input type="text" th:value="test01" name="boardWriter" readonly>
+						<input type="text" th:value="${session.member.memberId}" name="boardWriter" readonly>
 					</td>
 				</tr>
 				<tr>
@@ -42,5 +41,6 @@
 			</tbody>
 		</table>
 	</form>
+	<a href="/board/boardList?reqPage=1">목록</a>
 </body>
 </html>
