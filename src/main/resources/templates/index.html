@@ -24,15 +24,24 @@
         아래 5가지 경우는 jsp로 어떻게 하나요?
         thymeleaf의 경우는
         1. 특정 url로 이동
-          <a th:href="@{https://naver.com}">네이버로 이동</a>
+        	<a th:href="@{https://naver.com}">네이버로 이동</a>
         2. 현재 서버 내에서 이동
-          <a th:href="@{/member/signInFrm}">로그인 페이지로 이동</a>
+        	<a th:href="@{/member/signInFrm}">로그인 페이지로 이동</a>
         3. 파라미터를 넘길 시
-          <a th:href="@{/member/mypage(memberNo = ${session.member.memberNo})}">파라미터 1개</a>
+        	<a th:href="@{/member/mypage(memberNo = ${session.member.memberNo})}">파라미터 1개</a>
         4. 파라미터를 여러 개 넘길 시
-          <a th:href="@{/member/mypage(memberId = ${어쩌구저쩌구.memberId}, memberPw = ${어쩌구저쩌구.memberPw})}">파라미터 여러개</a>
+        	<a th:href="@{/member/mypage(memberId = ${어쩌구저쩌구.memberId}, memberPw = ${어쩌구저쩌구.memberPw})}">파라미터 여러개</a>
         5. PathVariable 사용 시
-          <a th:href="@{/member/mypage/{memberId}(memberId = ${어쩌구저쩌구.memberId})}">패스배리어블</a>
+        	<a th:href="@{/member/mypage/{memberId}(memberId = ${어쩌구저쩌구.memberId})}">패스배리어블</a>
+        ---------------------------------
+        아래의 경우는 jsp로 어떻게 하나요?
+        thymeleaf의 경우는
+        1. foreach문
+        	th:each = member : ${memberList}
+        2. switch
+        	th:switch = ${memberList}
+        3. if문, unless문
+        	th:if = 조건식 , th:unless = 조건식
         ---------------------------------
         스프링에서 BCryptPasswordEncoder를 쓰려면 어떻게 해야 하나요?
         스프링 부트에선
