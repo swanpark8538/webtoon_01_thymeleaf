@@ -1,5 +1,6 @@
 package com.webtoon;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,6 +17,9 @@ import com.webtoon.util.LoginInterceptor;
 @Configuration
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer{
+	
+	@Value("${file.root}")
+	private String root;
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -23,7 +27,7 @@ public class WebConfig implements WebMvcConfigurer{
 		registry.addResourceHandler("/**")
 				.addResourceLocations("classpath:/templates/", "classpath:/static/");
 		registry.addResourceHandler("/board/**")
-				.addResourceLocations("file:///C:/Temp/upload/board/");
+				.addResourceLocations("file:///"+root+"/board/");
 	}
 
 	@Override
